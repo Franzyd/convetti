@@ -2,7 +2,6 @@
 
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
-import { useRef } from "react";
 
 export type LayoutElements = {
     eventSide: JSX.Element,
@@ -11,11 +10,12 @@ export type LayoutElements = {
 
 let s:boolean = true
 function Clock() {
+    const ONE_SECOND = 1000
     const [time, setTime] = useState(new Date())
     useEffect(() => {
         const interval = setInterval(() => {
             setTime(new Date())
-        }, 1000)
+        }, ONE_SECOND)
 
         return () => clearInterval(interval)
     }, [])
@@ -41,9 +41,9 @@ export const Layout: React.FC<LayoutElements> = ({
             <span className="text-xl">Edytuj</span>
         </div>
     </header>
-    <div className="flex">
-        <div className="flex-1">{eventSide}</div>
-        <div className="flex-1">{mediaSide}</div>
-    </div>
+    <main className="flex">
+        <section className="flex-1">{eventSide}</section>
+        <section className="flex-1">{mediaSide}</section>
+    </main>
     </>
 }

@@ -33,7 +33,7 @@ export const UpcomingEvent: React.FC<EventData> = ({
 export function EventList({events}: Events) {
     let list
     return <>
-        {events.map(ev => <UpcomingEvent {...ev} key={ev.startTime}/>)}
+        {events.length > 0 && events.map(ev => <UpcomingEvent {...ev} key={ev.startTime}/>)}
         <em className="font-neue font-light text-3xl text-[#696969]">--Koniec dnia--</em>
     </>
 }
@@ -41,7 +41,8 @@ export function EventList({events}: Events) {
 export const CurrentEvent: React.FC<EventData> = ({
     startTime, endTime, title, host = undefined, description = undefined
 }) => {
-    return <>
+    if (startTime == undefined) return <></>
+    return <article>
         <p className="font-azeret font-bold text-4xl text-[#1E90FF]">
             {ToTime(startTime)}-{ToTime(endTime)}
         </p>
@@ -52,5 +53,5 @@ export const CurrentEvent: React.FC<EventData> = ({
         <p className="font-neue text-4xl text-[#696969]">
             {description}
         </p> }
-    </>
+    </article>
 }
