@@ -1,17 +1,47 @@
 import type { Metadata } from 'next'
-import { Comic_Neue, Azeret_Mono } from 'next/font/google'
+import {Azeret_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const comic_Neue = Comic_Neue({
-  weight: ['300', '400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
+const comic_Neue = localFont({
+  src: [
+    {
+      path: 'fonts/ComicNeue-Regular.ttf',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: 'fonts/ComicNeue-Italic.ttf',
+      weight: '400',
+      style: 'italic'
+    },
+    {
+      path: 'fonts/ComicNeue-Bold.ttf',
+      weight: '700',
+      style: 'normal'
+    },
+    {
+      path: 'fonts/ComicNeue-BoldItalic.ttf',
+      weight: '700',
+      style: 'italic'
+    },
+    {
+      path: 'fonts/ComicNeue-Light.ttf',
+      weight: '300',
+      style: 'normal'
+    },
+    {
+      path: 'fonts/ComicNeue-LightItalic.ttf',
+      weight: '300',
+      style: 'italic'
+    }
+  ],
   display: 'swap',
-  variable: '--font-comic-neue'
+  variable: '--font-comic-neue',
 })
 
 const azeret_Mono = Azeret_Mono({
-  subsets: ['latin'],
+  subsets: ['latin-ext'],
   display: 'swap',
   variable: '--font-azeret-mono'
 })

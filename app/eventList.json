@@ -1,0 +1,18 @@
+{
+    "events": [
+        {
+        "startTime": 0,
+        "endTime": 1100,
+        "title": "Tytuł",
+        "host": "Host",
+        "description": "Opis"
+        },
+        {
+        "startTime": 1100,
+        "endTime": 1200,
+        "title": "Title",
+        "host": "Presenter",
+        "description": "Description"
+        }
+    ]
+}
