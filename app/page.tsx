@@ -28,10 +28,15 @@ export default function Home() {
     </article>
     ),
 
-    mediaSide: (
-      <article>
-        {videos.length > 0 && <VideoPlayer videos={videos}/>}
-      </article>
+    mediaSide: (<>
+        <figure className='flex-1 self-center m-10'>
+          {videos.length > 0 && <VideoPlayer videos={videos}/>}
+        </figure>
+        <figure className='flex-1 relative self-center m-6 bg-slate-400'>
+          <Image src='/Example image.png'
+          height={600} width={600} alt='Example Image'/>
+        </figure>
+      </>
     )
   }
 

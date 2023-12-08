@@ -12,6 +12,7 @@ let s:boolean = true
 function Clock() {
     const ONE_SECOND = 1000
     const [time, setTime] = useState(new Date())
+    let colon:string = ':'
     useEffect(() => {
         const interval = setInterval(() => {
             setTime(new Date())
@@ -23,8 +24,7 @@ function Clock() {
     let m:any = time.getMinutes()
     if (h < 10) {h = "0" + h}
     if (m < 10) {m = "0" + m}
-    let colon:string = ':'
-    if (time.getSeconds() % 2 == 1) colon = ' '
+    // if (time.getSeconds() % 2 == 1) colon = ' '
     return <>{h}{colon}{m}</>
 }
 
@@ -43,7 +43,7 @@ export const Layout: React.FC<LayoutElements> = ({
     </header>
     <main className="flex">
         <section className="flex-1">{eventSide}</section>
-        <section className="flex-1">{mediaSide}</section>
+        <section className="flex-1 flex flex-col">{mediaSide}</section>
     </main>
     </>
 }
