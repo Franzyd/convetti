@@ -15,7 +15,8 @@ const config: Config = {
       },
       fontFamily: {
         neue: ["var(--font-comic-neue)"],
-        azeret: ["var(--font-azeret-mono)"]
+        azeret: ["var(--font-azeret-mono)"],
+        quicksand: ["var(--font-quicksand)"]
       }
     },
   },

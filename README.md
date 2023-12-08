@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Convetti
 
-## Getting Started
+## Mała aplikacja dla konwentów
 
-First, run the development server:
+**Funkcje:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* Lista programu z aktualizacjami czasowymi
+* Wyświetlacz filmików YouTube
+* Wyświetlacz obrazków
+
+## Użyte narzędzia i oprogramowanie
+
+* React i Next.js
+* react-player
+
+# Instalacja
+
+**Wymagania:** Node.js
+
+1. Pobranie repozytorium
+2. W rozpakowanym folderze, wywołanie komendy `npm run build`
+3. Wywołanie komendy `npm run start`
+4. Wejście na http://localhost:3000/
+
+# Zmiana treści
+## Lista wydarzeń
+
+W folderze `app/json/` znajduje się plik `eventList.json`, którego należy zedytować:
+
+```json
+{
+    "events": [
+        {
+        "startTime": 1000, # Godzina napisana w formacie 24h
+        "endTime": 1100,
+        "title": "Tytuł",
+        "host": "Host", # Opcjonalne
+        "description": "Opis" # Opcjonalne
+        },
+        {...} # następne eventy
+    ]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Po tym stronę należy odświeżyć.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Lista filmików
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+W folderze `app/json/` znajduje się plik `videoList.json`, w którym można dodawać linki do filmików na YouTubie:
+``` json
+[
+    "https://youtu.be/1pDM6fQUfJs",
+    "https://youtu.be/GNeyqFfXf7k",
+    "...",...
+]
+```
 
-## Learn More
+Po tym stronę należy odświeżyć.
 
-To learn more about Next.js, take a look at the following resources:
+# Lista obrazków
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Do folderu `public/slideshow/` należy wrzucić odpowiednie obrazki w formacie .png lub .jpg. Kolejność zdjęć jest alfabetyczna po nazwie pliku.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+Prosty diagram strony znajduje się w folderze `projekt/`

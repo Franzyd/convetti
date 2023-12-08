@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "eslint-plugin-react-hooks": "^4.6.0",
-    "next": "14.0.3",
+    "next": "^14.0.4",
     "react-player": "^2.13.0"
   },
   "devDependencies": {

@@ -3,6 +3,10 @@ import * as Event from '@/components/event'
 import * as Layout from '@/components/page_layout'
 import * as fs from 'fs'
 import { VideoPlayer } from '@/components/video_player'
+import dynamic from 'next/dynamic'
+import Slideshow from '@/components/image_player'
+
+const ListEvents = dynamic(() => import('../components/list_events'), { ssr:false})
 
 export default function Home() {
   let eventList: Event.Events
@@ -21,23 +25,19 @@ export default function Home() {
       videos = []
   }
 
-  let layoutElements: Layout.LayoutElements = {
-    eventSide: ( <article> 
-      <Event.CurrentEvent {...eventList.events[0]}/>
-      <Event.EventList events={eventList.events.slice(1)}/>
-    </article>
-    ),
+  let images = fs.readdirSync('public/slideshow/')
 
-    mediaSide: (<>
-        <figure className='flex-1 self-center m-10'>
-          {videos.length > 0 && <VideoPlayer videos={videos}/>}
-        </figure>
-        <figure className='flex-1 relative self-center m-6 bg-slate-400'>
-          <Image src='/Example image.png'
-          height={600} width={600} alt='Example Image'/>
-        </figure>
-      </>
-    )
+  let layoutElements: Layout.LayoutElements = {
+    eventSide: ( <ListEvents events={eventList.events}/> ),
+
+  mediaSide: (<>
+      <figure className='flex-1 m-5'>
+        {videos.length > 0 && <VideoPlayer videos={videos}/>}
+      </figure>
+      <figure className='flex-1 self-center flex content-center justify-center min-w-full bg-slate-400'>
+        <Slideshow files={images}/>
+      </figure>
+    </>)
   }
 
   let layout = <Layout.Layout {...layoutElements}/>

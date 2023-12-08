@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  height: 100vh
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,3 +26,9 @@
     )
     rgb(var(--background-start-rgb));
 } */
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

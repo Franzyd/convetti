@@ -21,12 +21,12 @@ export const UpcomingEvent: React.FC<EventData> = ({
     startTime, endTime, title, host = undefined
 }):JSX.Element => {
     return <>
-        <p className="font-neue text-3xl">
+        <ul className="font-neue text-3xl">
             <span className="font-azeret font-light">
                 {ToTime(startTime)}-{ToTime(endTime)}
             </span>
             <span> - {title} <em>({host})</em></span>
-        </p>
+        </ul>
     </>
 }
 
